@@ -2,12 +2,12 @@ namespace APBD_2;
 
 public abstract class Device
 {
-    public int Id { get; set; }
+    public string Id { get; set; }
     public string Name { get; set; }
 
     public bool IsTurnedOn { get; set; }
 
-    public Device(int id, string name)
+    public Device(string id, string name)
     {
         Id = id;
         Name = name;

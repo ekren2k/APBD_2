@@ -5,14 +5,14 @@ public class PersonalComputer : Device
     private string OperatingSystem
     { get; set; }
 
-    public PersonalComputer(int id, string name, string operatingSystem) : base(id, name)
+    public PersonalComputer(string id, string name, string operatingSystem) : base(id, name)
     {
         OperatingSystem = operatingSystem;
     }
 
     public override void TurnOn()
     {
-        if (OperatingSystem.Equals(null)) throw new EmptySystemException();
+        if (string.IsNullOrEmpty(OperatingSystem)) throw new EmptySystemException();
         else base.TurnOn();
     }
 }

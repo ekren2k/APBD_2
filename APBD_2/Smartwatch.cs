@@ -18,7 +18,7 @@ public class Smartwatch : Device, IPowerNotifier
         }
     }
 
-    public Smartwatch(int id, string name, int batteryPercentage) : base(id, name)
+    public Smartwatch(string id, string name, int batteryPercentage) : base(id, name)
     {
         if (batteryPercentage < 0) BatteryPercentage = 0;
         if (batteryPercentage > 100) BatteryPercentage = 100;
