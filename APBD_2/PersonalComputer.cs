@@ -15,4 +15,9 @@ public class PersonalComputer : Device
         if (string.IsNullOrEmpty(OperatingSystem)) throw new EmptySystemException();
         else base.TurnOn();
     }
+
+    public override string ToString()
+    {
+        return "Device name: "+Name+", id:"+Id+", turned on: "+IsTurnedOn + ", OS: " +OperatingSystem;
+    }
 }

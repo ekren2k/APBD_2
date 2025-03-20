@@ -4,14 +4,15 @@ namespace APBD_2;
 
 public class EmbeddedDevice : Device
 {
+    private string _ipAdress;
     public string IpAddress
     {
-        get { return IpAddress; }
+        get { return _ipAdress; }
         set
         {
             string pattern = @"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b";
             if (!Regex.IsMatch(value, pattern)) throw new ArgumentException();
-            else IpAddress = value;
+            else _ipAdress = value;
         }
     }
     public string NetworkName { get; set; }
@@ -36,6 +37,6 @@ public class EmbeddedDevice : Device
 
     public override string ToString()
     {
-        return base.ToString();
+        return "Device name: "+Name+", id:"+Id+", turned on: "+IsTurnedOn + ", ip address: " +IpAddress + ", network name: "+NetworkName;
     }
 }

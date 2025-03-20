@@ -3,18 +3,23 @@ namespace APBD_2;
 
 public class Smartwatch : Device, IPowerNotifier
 {
-    private int BatteryPercentage
+    private int _batteryPercentage;
+    public int BatteryPercentage
     {
         get
         {
-            return BatteryPercentage;
+            return _batteryPercentage;
         }
         set
         {
-            if (value < 0) BatteryPercentage = 0;
-            if (value > 100) BatteryPercentage = 100;
-            if (value < 20) LowPowerNotification();
-            else BatteryPercentage = value;
+            if (value < 0) _batteryPercentage = 0;
+            if (value > 100) _batteryPercentage = 100;
+            if (value < 20)
+            {
+                LowPowerNotification();
+                _batteryPercentage = value;
+            }
+            else _batteryPercentage = value;
         }
     }
 
@@ -37,5 +42,10 @@ public class Smartwatch : Device, IPowerNotifier
         if (BatteryPercentage <=20) LowPowerNotification();
         BatteryPercentage = BatteryPercentage - 10;
         base.TurnOn();
+    }
+
+    public override string ToString()
+    {
+        return "Device name: "+Name+", id:"+Id+", turned on: "+IsTurnedOn + ", battery percentage: " +BatteryPercentage;
     }
 }
