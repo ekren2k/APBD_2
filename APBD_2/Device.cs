@@ -28,4 +28,10 @@ public abstract class Device
     {
         throw new NotImplementedException();
     }
+
+    public override string ToString()
+    {
+        return "Device name: "+Name+", id:"+Id+", turned on: "+IsTurnedOn;
+    }
+    
 }
